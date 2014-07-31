@@ -6,7 +6,7 @@
 "    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2014/01/09 23:26:04 by tseguier          #+#    #+#              "
-"    Updated: 2014/07/31 10:19:07 by tseguier         ###   ########.fr        "
+"    Updated: 2014/07/31 10:22:49 by tseguier         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -38,14 +38,16 @@ execute "normal! kJ"
 execute "s/\\\.c /\.c \\\\\r/g"
 execute "normal! oOBJ = $(SRC:.c=.o)"
 execute "normal! o"
-execute "normal! oall: $(NAME)"
 if isdirectory("./libft")
+	execute "normal! oall: $(LIBNAME) $(NAME)"
 	execute "normal! o"
 	execute "normal! o$(LIBNAME):"
 	execute "normal! omake -C $(LIBDIR)"
 	execute "normal! o"
 	execute "normal! o$(LIBNAME)_fclean:"
 	execute "normal! omake -C $(LIBDIR) fclean"
+else
+	execute "normal! oall: $(NAME)"
 endif
 execute "normal! o"
 execute "normal! ogcc: $(OBJ)"

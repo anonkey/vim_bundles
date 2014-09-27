@@ -6,13 +6,17 @@
 "    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2014/01/09 23:26:04 by tseguier          #+#    #+#              "
-"    Updated: 2014/07/06 14:06:12 by tseguier         ###   ########.fr        "
+"    Updated: 2014/07/24 15:58:16 by tseguier         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
 "Vim plugin to add standard header and default content of a basic makefile
 execute "normal! iCC = clang"
+execute "normal! oifeq ($(DEBUG), 1)"
+execute "normal! oCFLAGS = -Wall -Wextra -Werror -ggdb3"
+execute "normal! oelse"
 execute "normal! oCFLAGS = -Wall -Wextra -Werror"
+execute "normal! oendif"
 execute "normal! oNAME = "
 execute "r !basename `pwd`"
 execute "normal! oSRC = "

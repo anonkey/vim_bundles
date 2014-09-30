@@ -6,7 +6,7 @@
 "    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2014/01/09 23:26:04 by tseguier          #+#    #+#              "
-"    Updated: 2014/09/27 15:25:12 by tseguier         ###   ########.fr        "
+"    Updated: 2014/10/01 01:09:43 by tseguier         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -33,7 +33,7 @@ if isdirectory("./libft")
 endif
 execute "normal! oSRC = "
 "execute "r !ls *.c | sed \"s/c$/c \\\\\\/g\" | sed \"\\\$s/ \\\\\\\\$//g\" "
-execute "r !ls *.c | tr -s \"\\n\" \" \" | sed \"s/ $//g\""
+execute "r !ls */*.c | tr -s \"\\n\" \" \" | sed \"s/ $//g\""
 execute "normal! kJ"
 execute "s/\\\.c /\.c \\\\\r/g"
 execute "normal! oOBJ = $(SRC:.c=.o)"
